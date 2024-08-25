@@ -53,8 +53,10 @@ class LeaveController extends Controller
             $leaveBalance->leave_quota -= $leave->leave_duration;
             $leaveBalance->save();
 
+            toastr()->success('Data has been saved successfully!');
             return redirect()->route('leaves.index');
         } catch (\Exception $e) {
+            toastr()->success('Error: ' . $e->getMessage());
             return redirect()->route('leaves.index');
         }
     }
@@ -127,8 +129,10 @@ class LeaveController extends Controller
 
             $leave->update($validated);
 
+            toastr()->success('Data has been updated successfully!');
             return redirect()->route('leaves.index');
         } catch (\Exception $e) {
+            toastr()->success('Error: ' . $e->getMessage());
             return redirect()->route('leaves.index');
         }
     }
@@ -149,8 +153,10 @@ class LeaveController extends Controller
 
             $leave->delete();
 
+            toastr()->success('Data has been deleted successfully!');
             return redirect()->route('leaves.index');
         } catch (\Exception $e) {
+            toastr()->success('Error: ' . $e->getMessage());
             return redirect()->route('leaves.index');
         }
     }

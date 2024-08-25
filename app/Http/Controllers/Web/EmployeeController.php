@@ -48,8 +48,10 @@ class EmployeeController extends Controller
             }
 
             Employee::create($validated);
+            toastr()->success('Data has been saved successfully!');
             return redirect()->route('employees.index');
         } catch (\Exception $e) {
+            toastr()->success('Error: ' . $e->getMessage());
             return redirect()->route('employees.index');
         }
     }
@@ -79,8 +81,10 @@ class EmployeeController extends Controller
         try {
 
             $employee->update($validated);
+            toastr()->success('Data has been updated successfully!');
             return redirect()->route('employees.index');
         } catch (\Exception $e) {
+            toastr()->success('Error: ' . $e->getMessage());
             return redirect()->route('employees.index');
         }
     }
@@ -89,8 +93,10 @@ class EmployeeController extends Controller
     {
         try {
             $employee->delete();
+            toastr()->success('Data has been deleted successfully!');
             return redirect()->route('employees.index');
         } catch (\Exception $e) {
+            toastr()->success('Error: ' . $e->getMessage());
             return redirect()->route('employees.index');
         }
     }

@@ -39,7 +39,7 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="address" class="form-label">Alamat</label>
-                            <textarea name="address" class="form-control @error('address') is-invalid @enderror" id="address" rows="3" autocomplete="off" {{ old('address') }} value="{{ $employee->address }}" style="resize: none"></textarea>
+                            <textarea name="address" class="form-control @error('address') is-invalid @enderror" id="address" rows="3" autocomplete="off" {{ old('address') }} style="resize: none">{{ $employee->address }}</textarea>
                           @error('address')
                               <div class="invalid-feedback">
                                   {{ $message }}

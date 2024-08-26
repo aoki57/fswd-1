@@ -21,7 +21,7 @@
                             <label for="employee_id">Karyawan</label>
                             <select name="employee_id" class="form-select">
                                 @foreach ($employees as $employee)
-                                    <option value="{{ $employee->id }}">{{ $employee->employee_number . ' - ' . $employee->name }}</option>
+                                    <option value="{{ $employee->id }}" {{ old('employee_id') == $employee->id ? 'selected' : '' }}>{{ $employee->employee_number . ' - ' . $employee->name }}</option>
                                 @endforeach
                             </select>
                             @error('employee_id')
@@ -32,7 +32,7 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="leave_date">Tanggal Cuti</label>
-                            <input type="date" name="leave_date" class="form-control @error('leave_date') is-invalid @enderror" id="leave_date" autocomplete="off" {{ old('leave_date') }}>
+                            <input type="date" name="leave_date" class="form-control @error('leave_date') is-invalid @enderror" id="leave_date" value="{{ old('leave_date') }}">
                             @error('leave_date')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -43,7 +43,7 @@
                             <label for="leave_duration">Lama Cuti</label>
                             <select name="leave_duration" class="form-select">
                                 @for ($i = 1; $i <= 12; $i++)
-                                    <option value="{{ $i }}">{{ $i }}</option>
+                                    <option value="{{ $i }}" {{ old('leave_duration') == $i ? 'selected' : '' }}>{{ $i }}</option>
                                 @endfor
                             </select>
                             @error('leave_duration')
@@ -53,8 +53,8 @@
                             @enderror
                         </div>
                         <div class="form-group mb-3">
-                              <label for="leave_information" class="form-label">Keterangan</label>
-                              <textarea name="leave_information" class="form-control @error('leave_information') is-invalid @enderror" id="leave_information" rows="3" autocomplete="off" {{ old('leave_information') }} style="resize: none"></textarea>
+                            <label for="leave_information" class="form-label">Keterangan</label>
+                            <textarea name="leave_information" class="form-control @error('leave_information') is-invalid @enderror" id="leave_information" rows="3" autocomplete="off" style="resize: none">{{ old('leave_information') }}</textarea>
                             @error('leave_information')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -63,7 +63,7 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-info w-100 d-block" onclick="return confirm('Are you sure?')">
+                        <button class="btn btn-info w-100 d-block confirm-button">
                             <i class="bi bi-floppy me-2"></i>
                             <span>Simpan</span>
                         </button>

@@ -20,7 +20,8 @@
                     <div class="card-body">
                         <div class="form-group mb-3">
                             <label for="employee_number">Nomor Induk</label>
-                            <input type="text" name="employee_number" class="form-control @error('employee_number') is-invalid @enderror" id="employee_number" placeholder="Kosongkan jika ingin diisi otomats" autocomplete="off" {{ old('employee_number') }}>
+                            <input type="text" name="employee_number" class="form-control @error('employee_number') is-invalid @enderror" id="employee_number" placeholder="Kosongkan jika ingin diisi otomatis"
+                                value="{{ old('employee_number') }}">
                             @error('employee_number')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -29,7 +30,7 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="name">Nama</label>
-                            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Nama Karyawan" autocomplete="off" autofocus {{ old('name') }}>
+                            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Nama Karyawan" autocomplete="off" autofocus value="{{ old('name') }}">
                             @error('name')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -38,16 +39,16 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="address" class="form-label">Alamat</label>
-                            <textarea name="address" class="form-control @error('address') is-invalid @enderror" id="address" rows="3" autocomplete="off" {{ old('address') }} style="resize: none"></textarea>
-                          @error('address')
-                              <div class="invalid-feedback">
-                                  {{ $message }}
-                              </div>
-                          @enderror
-                      </div>
+                            <textarea name="address" class="form-control @error('address') is-invalid @enderror" id="address" rows="3" autocomplete="off" value="{{ old('address') }}" style="resize: none"></textarea>
+                            @error('address')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
                         <div class="form-group mb-3">
                             <label for="birth_date">Ulang Tahun</label>
-                            <input type="date" name="birth_date" class="form-control @error('birth_date') is-invalid @enderror" id="birth_date" placeholder="Tanggal Ulang Tahun" autocomplete="off" {{ old('birth_date') }}>
+                            <input type="date" name="birth_date" class="form-control @error('birth_date') is-invalid @enderror" id="birth_date" placeholder="Tanggal Ulang Tahun" value="{{ old('birth_date') }}">
                             @error('birth_date')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -56,7 +57,7 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="join_date">Bergabung Pada</label>
-                            <input type="date" name="join_date" class="form-control @error('join_date') is-invalid @enderror" id="join_date" placeholder="Tanggal Bergabung" autocomplete="off" {{ old('join_date') }}>
+                            <input type="date" name="join_date" class="form-control @error('join_date') is-invalid @enderror" id="join_date" placeholder="Tanggal Bergabung" value="{{ old('join_date') }}">
                             @error('join_date')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -65,7 +66,7 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-info w-100 d-block" onclick="return confirm('Are you sure?')">
+                        <button class="btn btn-info w-100 d-block confirm-button">
                             <i class="bi bi-floppy me-2"></i>
                             <span>Simpan</span>
                         </button>

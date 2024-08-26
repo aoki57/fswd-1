@@ -10,7 +10,9 @@ Route::get('/logout', [AuthController::class, 'logout']);
 Route::get('/me', [AuthController::class, 'me']);
 
 Route::get('/new-employees', [EmployeeController::class, 'newEmployees'])->name('newEmployees');
+
 Route::resource('/employees', EmployeeController::class);
 
 Route::get('/leave-balances', [LeaveController::class, 'leaveBalances'])->name('leaveBalances');
+
 Route::resource('/leaves', LeaveController::class);
